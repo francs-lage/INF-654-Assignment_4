@@ -45,57 +45,52 @@
     appId: "1:572243291809:web:a16e0a4d7d31e08915cae0"
   };
 
-
-
     // Initialize Firebase
      const app = initializeApp(firebaseConfig);
      const database = getDatabase(app);
 
-     createData.addEventListener('click',(e) => {
-      var itemnumber = document.getElementById('itemnumber').value;
-      var item = document.getElementById('item').value;
 
+// >>>>  CRUD OPERATIONS <<<<<
 
-      set(ref(database, 'items/' + itemnumber), {
-
-          itemnumber: itemnumber,
-          item: item,
-
-      });
+  // create data
+  createData.addEventListener('click',(e) => {
+    var itemnumber = document.getElementById('itemnumber').value;
+    var item = document.getElementById('item').value;
+    set(ref(database, 'items/' + itemnumber), {
+        itemnumber: itemnumber,
+        item: item,
+    });
 
   alert('created');
   });
 
-  // get data
+  // read data
   getData.addEventListener('click',(e) => {
     var itemnumber = document.getElementById('itemnumber').value;
-
     const starCountRef = ref(database, 'items/' + itemnumber);
     onValue(starCountRef, (snapshot) => {
-    const data = snapshot.val(); // data = all data on firebse
-    document.getElementById('item').value = data.item;
+        const data = snapshot.val(); // data = all data on firebse
+        document.getElementById('item').value = data.item;
     });  
   });
 
 
   // update data
   updateData.addEventListener('click',(e) => {
-   var itemnumber = document.getElementById('itemnumber').value;
-   var item = document.getElementById('item').value;
-    
-  update(ref(database, 'items/' + itemnumber),{
-    item: item,
-    itemnumber: itemnumber, 
+    var itemnumber = document.getElementById('itemnumber').value;
+    var item = document.getElementById('item').value; 
+    update(ref(database, 'items/' + itemnumber),{
+        item: item,
+        itemnumber: itemnumber, 
     })
     alert('updated');
   });
 
   // remove data
   removeData.addEventListener('click',(e) => {
-   var itemnumber = document.getElementById('itemnumber').value;
-  
-   remove(ref(database, 'items/' + itemnumber));
-   alert('removed');
+    var itemnumber = document.getElementById('itemnumber').value;
+    remove(ref(database, 'items/' + itemnumber));
+    alert('removed');
   });
 
 </script>   
