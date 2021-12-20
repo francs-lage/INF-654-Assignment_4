@@ -2,3 +2,6 @@
 12/19/2021 (12:10pm)
 The CRUD operations is not implemented. I'm working in a different and simple project to see if I can get them working.
 I think the problem is that I mixed instructions for an older version of firebase with the 9.0 version.
+
+12/20/2021 (8:00pm)
+replaced my first index.html attempt by a basic version that is working.
